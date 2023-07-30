@@ -12,12 +12,18 @@ void selection_sort(int arr[],int n){
     }
 }
 void bubble_sort(int arr[],int n){
+    int didswap=0;
     for(int i=n-1;i>=0;i--){
         for(int j=0;j<=i-1;j++){
             if(arr[j]>arr[j+1]){
                 swap(arr[j+1],arr[j]);
+                didswap=1;
             }
         }
+        if(didswap==0){ // This is for less time complexity
+            break; // This is for when the arr is already sorted, then we did not want to run the for loop again
+        }
+        //Now the time complexity is o(n), this is base case. the average and worst case is o(n^2)
     }
 }
 int main(){
